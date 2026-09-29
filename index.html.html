@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Rojina ❤️</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap"
+        rel="stylesheet"
+    >
+</head>
+<script>
+/* =========================================================
+   DAILY NOTES SYSTEM
+   ========================================================= */
+
+const dailyGifs = {
+    // Add one GIF URL per date when you want a specific GIF.
+    "2026-09-24": "https://media.giphy.com/media/26FLdmIp6wJr91JAI/giphy.gif",
+    "2026-09-25": "https://media.giphy.com/media/3o7TKoWXm3okO1kgHC/giphy.gif",
+    "2026-09-26": "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif",
+    "2026-09-27": "https://media.giphy.com/media/26FLdmIp6wJr91JAI/giphy.gif",
+    "2026-09-28": "https://media.giphy.com/media/od5H3PmEG5EVq/giphy.gif",
+    "2026-09-29": "https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyOXVpcmhsdzB2dzI2ampwbXp0bnh0bzB5YzQ1enNueWN0ZDJiOXJraiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/65HVoXC6RATm5K4auv/giphy.gif",
+    "2026-09-30": "https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif",
+    "2026-10-01": "https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif"
+};
+
+const dailyNotes = {
+
+    "2026-09-09":
+        "Waqt badalne par jo insaan nahi badalta, asli wafadari usi ke kirdaar mein hoti ha",
+
+    "2026-09-10":
+        "Mohabbat lafzon se nahi, loyalty se sabit hoti hai; kyunki sachcha insaan mauka milne par bhi dhokha nahi deta",
+
+    "2026-09-11":
+        "I hope today gives you at least one reason to smile and a hundred reasons to keep smiling. ✨",
+
+    "2026-09-12":
+        "You not deserve happiness that feels peaceful, genuine and endless. 🌸kisi ne bola isliye aisa likha hai",
+
+    "2026-09-13":
+        "If today gets difficult, remember how many beautiful moments are still waiting for you. 💜",
+
+    "2026-09-14":
+        "You don't have to be perfect to be special. Just being you is enough. ❤️",
+
+    "2026-09-15":
+        "I love you more than yesterday and less than tomorrow.",
+
+    "2026-09-16":
+        "I hope your day is as beautiful as the smile you bring to other people's lives. 🌷",
+
+    "2026-09-17":
+        "I love you so much meri lado💐❤️",
+
+    "2026-09-18":
+        "Whatever happens today, don't forget that someone out there is wishing you happiness. 🌙",
+
+    "2026-09-19":
+        "Life becomes a little brighter when you choose to smile through the little things. ✨",
+
+    "2026-09-20":
+        "You are more loved, more important and more special than you sometimes realize. ❤️",
+
+    "2026-09-21":
+        "Another day, another little reason to be grateful that you exist. 💕",
+
+    "2026-09-22":
+        "Keep your heart soft, your dreams big and your smile beautiful. 🌸",
+
+    "2026-09-23":
+        "I hope something unexpectedly beautiful happens to you today. 💜",
+
+"2026-09-24":
+    "Thinking About You 💕",
+
+"2026-09-25":
+    "A Little Piece Of My Heart 💕",
+
+"2026-09-26":
+    "A Little Bit Of Happiness ❤️",
+
+"2026-09-27":
+    "A Little Warmth For You 💖",
+
+"2026-09-28":
+    "A Little Sweet Thought Of You 🌹",
+
+"2026-09-29":
+    "A Little Smile Just For You 😊❤️",
+
+"2026-09-30":
+    "A Little Magic For Us ✨",
+
+"2026-10-01":
+    "A Little Dream About Us 💕",
+
+"2026-10-02":
+    "A Little Hug For You 🤗",
+
+"2026-10-03":
+    "A Little Sunshine For You ☀️💗",
+
+"2026-10-04":
+    "A Little Care For You ❤️",
+
+"2026-10-05":
+    "A Little Joy From You 💖",
+
+"2026-10-06":
+    "A Little Note From My Heart 💕",
+
+"2026-10-07":
+    "A Little Sweetness For You 🌹",
+
+"2026-10-08":
+    "A Little Romance For You 💗",
+
+"2026-10-09":
+    "A Little Heartfelt Hello ❤️",
+
+"2026-10-10":
+    "A Little Love From Me 💕",
+
+"2026-10-11":
+    "A Little Thought For You 💖",
+
+"2026-10-12":
+    "A Little Moment With You 🌹",
+
+"2026-10-13":
+    "A Little Wish For You 💗",
+
+"2026-10-14":
+    "You Are My Favourite Thought ❤️",
+
+"2026-10-15":
+    "You Are My Happy Place 💕",
+
+"2026-10-16":
+    "You Are My Sweetest Memory 💖",
+
+"2026-10-17":
+    "You Are My Beautiful Reason 🌹",
+
+"2026-10-18":
+    "You Are My Little Sunshine ☀️",
+
+"2026-10-19":
+    "You Are My Safe Place ❤️",
+
+"2026-10-20":
+    "You Are My Favourite Person 💕",
+
+"2026-10-21":
+    "You Are My Best Thought 💗",
+
+"2026-10-22":
+    "You Are My Sweetest Feeling 💖",
+
+"2026-10-23":
+    "You Are My Happy Thought ❤️",
+
+"2026-10-24":
+    "You Are My Lovely Dream 🌹",
+
+"2026-10-25":
+    "You Are My Special Someone 💕",
+
+"2026-10-26":
+    "You Are My Gentle Reminder 💗",
+
+"2026-10-27":
+    "You Are My Brightest Smile 😊❤️",
+
+"2026-10-28":
+    "You Are My Favourite Chapter 📖💖",
+
+"2026-10-29":
+    "You Are My Beautiful Moment 💕",
+
+"2026-10-30":
+    "You Are My Heart's Choice ❤️",
+
+"2026-10-31":
+    "You Are My Daily Smile 😊💕",
+
+"2026-11-01":
+    "You Are My Sweetest Surprise 💖",
+
+"2026-11-02":
+    "You Are My Reason To Smile ❤️",
+
+"2026-11-03":
+    "Thinking Of You Tonight 🌙💗",
+
+"2026-11-04":
+    "Thinking Of Your Smile 😊💕",
+
+"2026-11-05":
+    "Thinking Of Us Together ❤️",
+
+"2026-11-06":
+    "Thinking Of Your Beautiful Heart 💖",
+
+"2026-11-07":
+    "Thinking Of Our Little Moments 🌹",
+
+"2026-11-08":
+    "Thinking Of Your Sweet Voice 🎶❤️",
+
+"2026-11-09":
+    "Thinking Of Your Laugh 😊💗",
+
+"2026-11-10":
+    "Thinking Of The Way You Smile 💕",
+
+"2026-11-11":
+    "Thinking Of You Again ❤️",
+
+"2026-11-12":
+    "Thinking Of Our Memories 💖",
+
+"2026-11-13":
+    "Thinking Of Your Kind Heart 🌹",
+
+"2026-11-14":
+    "Thinking Of Our Future 💗",
+
+"2026-11-15":
+    "Thinking Of Your Happiness ❤️",
+
+"2026-11-16":
+    "Thinking Of Your Presence 💕",
+
+"2026-11-17":
+    "Thinking Of That Special Smile 😊💖",
+
+"2026-11-18":
+    "Thinking Of All Our Moments 🌹",
+
+"2026-11-19":
+    "Thinking Of You And Me ❤️",
+
+"2026-11-20":
+    "Thinking Of The Little Things 💗",
+
+"2026-11-21":
+    "Thinking Of Your Beautiful Soul 💕",
+
+"2026-11-22":
+    "Thinking Of Our Story 💖",
+
+"2026-11-23":
+    "Forever With You ❤️",
+
+"2026-11-24":
+    "Forever Choosing You 💕",
+
+"2026-11-25":
+    "Forever Beside You 💗",
+
+"2026-11-26":
+    "Forever In My Heart ❤️",
+
+"2026-11-27":
+    "Forever Starts With Us 💖",
+
+"2026-11-28":
+    "Forever Feels Like Home 🌹",
+
+"2026-11-29":
+    "Forever Sounds Beautiful 💕",
+
+"2026-11-30":
+    "Forever Isn't Long Enough ❤️",
+
+"2026-12-01":
+    "Forever Means You And Me 💗",
+
+"2026-12-02":
+    "Forever Looks Like Us 💖",
+
+"2026-12-03":
+    "Forever Feels Better Together 💕",
+
+"2026-12-04":
+    "Forever And Always ❤️",
+
+"2026-12-05":
+    "Forever With My Favourite Person 🌹",
+
+"2026-12-06":
+    "Forever In Your Corner 💗",
+
+"2026-12-07":
+    "Forever On Your Side ❤️",
+
+"2026-12-08":
+    "Forever In Every Chapter 💖",
+
+"2026-12-09":
+    "Forever Under One Sky ✨",
+
+"2026-12-10":
+    "Forever In My Heart ❤️",
+
+"2026-12-11":
+    "Forever With Your Smile 😊💕",
+
+"2026-12-12":
+    "Forever With Love 💗",
+
+"2026-12-13":
+    "You Make Me Smile 😊❤️",
+
+"2026-12-14":
+    "You Make My Heart Happy 💕",
+
+"2026-12-15":
+    "You Make Ordinary Days Special 💖",
+
+"2026-12-16":
+    "You Make Everything Brighter ✨",
+
+"2026-12-17":
+    "You Make Life Feel Beautiful 🌹",
+
+"2026-12-18":
+    "You Make My World Softer 💗",
+
+"2026-12-19":
+    "You Make My Heart Skip ❤️",
+
+"2026-12-20":
+    "You Make Me Feel Lucky 💕",
+
+"2026-12-21":
+    "You Make Every Moment Better 💖",
+
+"2026-12-22":
+    "You Make My Days Sweeter 🌹",
+
+"2026-12-23":
+    "You Make My Thoughts Happier 💗",
+
+"2026-12-24":
+    "You Make Love Feel Easy ❤️",
+
+"2026-12-25":
+    "You Make My Heart Glow 💖",
+
+"2026-12-26":
+    "You Make Me Believe In Magic ✨",
+
+"2026-12-27":
+    "You Make Little Things Matter 💕",
+
+"2026-12-28":
+    "You Make My Face Smile 😊",
+
+"2026-12-29":
+    "You Make Today Beautiful ❤️",
+
+"2026-12-30":
+    "You Make Memories Brighter 💖",
+
+"2026-12-31":
+    "You Make My World Warmer 🌹",
+
+"2027-01-01":
+    "You Make My Heart Sing 🎶❤️",
+
+"2027-01-02":
+    "My Heart Is Yours ❤️",
+
+"2027-01-03":
+    "My Heart Chooses You 💕",
+
+"2027-01-04":
+    "My Heart Knows Your Name 💗",
+
+"2027-01-05":
+    "My Heart Smiles For You 😊❤️",
+
+"2027-01-06":
+    "My Heart Feels At Home With You 💖",
+
+"2027-01-07":
+    "My Heart Keeps Thinking Of You 💕",
+
+"2027-01-08":
+    "My Heart Beats A Little Faster ❤️",
+
+"2027-01-09":
+    "My Heart Has A Place For You 🌹",
+
+"2027-01-10":
+    "My Heart Found Something Special 💗",
+
+"2027-01-11":
+    "My Heart Wants More Moments With You 💖",
+
+"2027-01-12":
+    "My Heart Remembers Every Smile 😊",
+
+"2027-01-13":
+    "My Heart Carries You Close ❤️",
+
+"2027-01-14":
+    "My Heart Loves Our Little Moments 💕",
+
+"2027-01-15":
+    "My Heart Feels Lucky With You 💗",
+
+"2027-01-16":
+    "My Heart Always Finds You ❤️",
+
+"2027-01-17":
+    "My Heart Keeps You Close 💖",
+
+"2027-01-18":
+    "My Heart Belongs With You 🌹",
+
+"2027-01-19":
+    "My Heart Saves A Smile For You 😊💕",
+
+"2027-01-20":
+    "My Heart Has A Favourite Person ❤️",
+
+"2027-01-21":
+    "My Heart Says Your Name 💗",
+
+"2027-01-22":
+    "A Song For My Favourite Person 🌹",
+
+"2027-01-23":
+    "A Song For Your Beautiful Smile 💕",
+
+"2027-01-24":
+    "A Song For You And Me ❤️",
+
+"2027-01-25":
+    "A Song For A Special Someone 💖",
+
+"2027-01-26":
+    "A Song For Our Little Story 🌹",
+
+"2027-01-27":
+    "A Song For The One I Adore 💗",
+
+"2027-01-28":
+    "A Song For My Sweetest Thought ❤️",
+
+"2027-01-29":
+    "A Song For My Favourite Heart 💕",
+
+"2027-01-30":
+    "A Song For Our Next Memory 💖",
+
+"2027-01-31":
+    "A Song For Your Happy Days 🌹",
+
+"2027-02-01":
+    "A Song For The Person I Think About 💗",
+
+"2027-02-02":
+    "A Song For My Favourite Smile 😊❤️",
+
+"2027-02-03":
+    "A Song For A Beautiful Soul 💕",
+
+"2027-02-04":
+    "A Song For Our Forever 💖",
+
+"2027-02-05":
+    "A Song For The One Who Makes Me Smile 🌹",
+
+"2027-02-06":
+    "A Song For You, With Love ❤️",
+
+"2027-02-07":
+    "A Song For My Heart's Favourite 💗",
+
+"2027-02-08":
+    "A Song For Our Sweet Moments 💕",
+
+"2027-02-09":
+    "A Song For The One Who Feels Like Home 💖",
+
+"2027-02-10":
+    "A Song For You Tonight 🌙❤️",
+
+"2027-02-11":
+    "Just A Little Reminder Of Us 💗",
+
+"2027-02-12":
+    "Just One More Reason To Smile 😊💕",
+
+"2027-02-13":
+    "Just A Sweet Thought Of You ❤️",
+
+"2027-02-14":
+    "Just A Moment To Say I Love You 💖",
+
+"2027-02-15":
+    "Just A Little Love Note 🌹",
+
+"2027-02-16":
+    "Just A Thought From My Heart 💗",
+
+"2027-02-17":
+    "Just A Smile For You 😊❤️",
+
+"2027-02-18":
+    "Just A Hug In Words 💕",
+
+"2027-02-19":
+    "Just A Wish For Your Happiness 💖",
+
+"2027-02-20":
+    "Just A Beautiful Thought 🌹",
+
+"2027-02-21":
+    "Just A Tiny Piece Of My Heart ❤️",
+
+"2027-02-22":
+    "Just A Reminder That You Matter 💗",
+
+"2027-02-23":
+    "Just A Sweet Hello 💕",
+
+"2027-02-24":
+    "Just A Little Bit Of Romance 💖",
+
+"2027-02-25":
+    "Just A Moment For You 🌹",
+
+"2027-02-26":
+    "Just A Heartfelt Thought ❤️",
+
+"2027-02-27":
+    "Just A Secret Smile For You 😊💕",
+
+"2027-02-28":
+    "Just A Little Magic For Us ✨",
+
+"2027-03-01":
+    "Just A Soft Thought Of You 💗",
+
+"2027-03-02":
+    "Just A Love-Filled Moment ❤️",
+
+"2027-03-03":
+    "Always Thinking Of You 💕",
+
+"2027-03-04":
+    "Always Choosing Us 💖",
+
+"2027-03-05":
+    "Always Cheering For You 🌹",
+
+"2027-03-06":
+    "Always Here For You ❤️",
+
+"2027-03-07":
+    "Always Close In My Heart 💗",
+
+"2027-03-08":
+    "Always Saving A Smile For You 😊💕",
+
+"2027-03-09":
+    "Always Sending You Love 💖",
+
+"2027-03-10":
+    "Always Remembering Your Smile 🌹",
+
+"2027-03-11":
+    "Always Grateful For You ❤️",
+
+"2027-03-12":
+    "Always Rooting For Your Happiness 💗",
+
+"2027-03-13":
+    "Always Keeping You In My Thoughts 💕",
+
+"2027-03-14":
+    "Always Believing In Us 💖",
+
+"2027-03-15":
+    "Always Finding My Way To You 🌹",
+
+"2027-03-16":
+    "Always Sending A Little Romance ❤️",
+
+"2027-03-17":
+    "Always Carrying You In My Heart 💗",
+
+"2027-03-18":
+    "Always Wishing You Love 💕",
+
+"2027-03-19":
+    "Always Holding Our Memories Close 💖",
+
+"2027-03-20":
+    "Always Thinking About Our Future 🌹",
+
+"2027-03-21":
+    "Always Loving The Little Things ❤️",
+
+"2027-03-22":
+    "Always Feeling Lucky For You 💗",
+
+"2027-03-23":
+    "You & Me ❤️",
+
+"2027-03-24":
+    "You & Us 💕",
+
+"2027-03-25":
+    "You & Our Little World 💖",
+
+"2027-03-26":
+    "You & This Beautiful Story 🌹",
+
+"2027-03-27":
+    "You & A Thousand Memories ✨",
+
+"2027-03-28":
+    "You & One Beautiful Journey 💗",
+
+"2027-03-29":
+    "You & Forever In My Thoughts ❤️",
+
+"2027-03-30":
+    "You & All My Favourite Moments 💕",
+
+"2027-03-31":
+    "You & Every Sweet Moment 💖",
+
+"2027-04-01":
+    "You & A Little Forever 🌹",
+
+"2027-04-02":
+    "You & Our Favourite Song 🎶",
+
+"2027-04-03":
+    "You & A Heart Full Of Love ❤️",
+
+"2027-04-04":
+    "You & Countless Smiles 😊💕",
+
+"2027-04-05":
+    "You & Beautiful Days Ahead ✨",
+
+"2027-04-06":
+    "You & The Best Little Story 💗",
+
+"2027-04-07":
+    "You & Our Next Adventure 🌹",
+
+"2027-04-08":
+    "You & A World Of Our Own 💖",
+
+"2027-04-09":
+    "You & Sweet Memories To Come ❤️",
+
+"2027-04-10":
+    "You & One Heart, Two Souls 💕",
+
+"2027-04-11":
+    "You & Love, Always 💗",
+
+"2027-04-12":
+    "Love Looks Good On You 💕",
+
+"2027-04-13":
+    "Love Feels Better With You ❤️",
+
+"2027-04-14":
+    "Love Sounds Like Your Name 💖",
+
+"2027-04-15":
+    "Love Lives In Little Moments 🌹",
+
+"2027-04-16":
+    "Love Starts With A Smile 😊",
+
+"2027-04-17":
+    "Love Feels Like Home With You 💗",
+
+"2027-04-18":
+    "Love Is My Favourite Feeling ❤️",
+
+"2027-04-19":
+    "Love Makes Every Day Softer 💕",
+
+"2027-04-20":
+    "Love Is Better When Shared With You 💖",
+
+"2027-04-21":
+    "Love Is A Little Bit Of Magic ✨",
+
+"2027-04-22":
+    "Love Reminds Me Of You 🌹",
+
+"2027-04-23":
+    "Love Makes My Heart Smile 😊❤️",
+
+"2027-04-24":
+    "Love Is Written In My Thoughts 💗",
+
+"2027-04-25":
+    "Love Feels Sweet Today 💕",
+
+"2027-04-26":
+    "Love Makes Us Beautiful ❤️",
+
+"2027-04-27":
+    "Love Is My Favourite Story 💖",
+
+"2027-04-28":
+    "Love Grows In Quiet Moments 🌹",
+
+"2027-04-29":
+    "Love Feels Right With You 💗",
+
+"2027-04-30":
+    "Love Is A Language We Share ❤️",
+
+"2027-05-01":
+    "Love Is My Little Secret 💕",
+
+"2027-05-02":
+    "Today Is For Smiling 😊",
+
+"2027-05-03":
+    "Today I Choose You ❤️",
+
+"2027-05-04":
+    "Today I Am Thinking Of You 💕",
+
+"2027-05-05":
+    "Today Feels A Little Sweeter 💖",
+
+"2027-05-06":
+    "Today Needs A Little Romance 🌹",
+
+"2027-05-07":
+    "Today Comes With A Kiss 💗",
+
+"2027-05-08":
+    "Today I Saved A Thought For You ❤️",
+
+"2027-05-09":
+    "Today Feels Better Because Of You 💕",
+
+"2027-05-10":
+    "Today I Hope You Smile 😊",
+
+"2027-05-11":
+    "Today Has A Little Love In It 💖",
+
+"2027-05-12":
+    "Today Feels Like A Good Memory 🌹",
+
+"2027-05-13":
+    "Today I Am Sending You Love 💗",
+
+"2027-05-14":
+    "Today Deserves A Sweet Moment ❤️",
+
+"2027-05-15":
+    "Today I Am Grateful For You 💕",
+
+"2027-05-16":
+    "Today Needs Your Beautiful Smile 😊",
+
+"2027-05-17":
+    "Today Feels Special Somehow 💖",
+
+"2027-05-18":
+    "Today I Am Keeping You Close 🌹",
+
+"2027-05-19":
+    "Today Has You On My Mind 💗",
+
+"2027-05-20":
+    "Today Is Another Day To Adore You ❤️",
+
+"2027-05-21":
+    "Today Feels Like Us 💕",
+
+"2027-05-22":
+    "Your Smile Is My Favourite 💖",
+
+"2027-05-23":
+    "Your Name Makes Me Smile ❤️",
+
+"2027-05-24":
+    "Your Presence Feels Like Home 💕",
+
+"2027-05-25":
+    "Your Voice Makes Me Happy 🎶",
+
+"2027-05-26":
+    "Your Happiness Matters To Me 💗",
+
+"2027-05-27":
+    "Your Laugh Is Pure Magic 😊",
+
+"2027-05-28":
+    "Your Heart Is Beautiful 🌹",
+
+"2027-05-29":
+    "Your Eyes Hold A Little Magic ✨",
+
+"2027-05-30":
+    "Your Kindness Is Beautiful ❤️",
+
+"2027-05-31":
+    "Your Smile Stays In My Mind 💖",
+
+"2027-06-01":
+    "Your Happiness Looks Good On You 💕",
+
+"2027-06-02":
+    "Your Little Things Mean A Lot 💗",
+
+"2027-06-03":
+    "Your Sweetness Is Unforgettable 🌹",
+
+"2027-06-04":
+    "Your Presence Makes Days Better ❤️",
+
+"2027-06-05":
+    "Your Smile Is Worth A Thousand Words 😊",
+
+"2027-06-06":
+    "Your Heart Deserves The Best 💖",
+
+"2027-06-07":
+    "Your Beautiful Soul Shines 💕",
+
+"2027-06-08":
+    "Your Name Has A Special Place Here ❤️",
+
+"2027-06-09":
+    "Your Happiness Is My Wish For You 🌹",
+
+"2027-06-10":
+    "Your Smile Is My Daily Thought 💗",
+
+"2027-06-11":
+    "For You With All My Heart ❤️",
+
+"2027-06-12":
+    "For You A Thousand Little Smiles 😊",
+
+"2027-06-13":
+    "For You One Warm Hug 💕",
+
+"2027-06-14":
+    "For You A Sweet Goodnight 🌙",
+
+"2027-06-15":
+    "For You A Beautiful Good Morning ☀️",
+
+"2027-06-16":
+    "For You All My Best Thoughts 💖",
+
+"2027-06-17":
+    "For You A Pocketful Of Love 🌹",
+
+"2027-06-18":
+    "For You One More Heartbeat 💗",
+
+"2027-06-19":
+    "For You A Little Kiss In Words 💋",
+
+"2027-06-20":
+    "For You A Quiet I Love You ❤️",
+
+"2027-06-21":
+    "For You My Warmest Smile 😊",
+
+"2027-06-22":
+    "For You A Tiny Forever 💕",
+
+"2027-06-23":
+    "For You A Dream For Us 💖",
+
+"2027-06-24":
+    "For You A Wish To Stay Close 🌹",
+
+"2027-06-25":
+    "For You A Heart Full Of Care 💗",
+
+"2027-06-26":
+    "For You A Moment To Remember ❤️",
+
+"2027-06-27":
+    "For You A Little Piece Of Magic ✨",
+
+"2027-06-28":
+    "For You My Favourite Thought 💕",
+
+"2027-06-29":
+    "For You A Sweet Little Secret 💖",
+
+"2027-06-30":
+    "For You All The Love I Can Send 🌹",
+
+"2027-07-01":
+    "With You Everything Feels Softer 💗",
+
+"2027-07-02":
+    "With You I Would Choose This Again ❤️",
+
+"2027-07-03":
+    "With You Every Moment Feels Special 💕",
+
+"2027-07-04":
+    "With You Ordinary Days Feel Golden 💖",
+
+"2027-07-05":
+    "With You My Heart Feels At Home 🌹",
+
+"2027-07-06":
+    "With You Smiles Come More Easily 😊",
+
+"2027-07-07":
+    "With You The Little Things Matter 💗",
+
+"2027-07-08":
+    "With You Memories Feel Brighter ❤️",
+
+"2027-07-09":
+    "With You Tomorrow Feels Beautiful 💕",
+
+"2027-07-10":
+    "With You Today Feels Worth Remembering 💖",
+
+"2027-07-11":
+    "With You My World Feels Warmer 🌹",
+
+"2027-07-12":
+    "With You Every Chapter Feels Better 📖❤️",
+
+"2027-07-13":
+    "With You Time Feels A Little Sweeter 💗",
+
+"2027-07-14":
+    "With You Even Silence Feels Special 💕",
+
+"2027-07-15":
+    "With You Dreams Feel More Beautiful 💖",
+
+"2027-07-16":
+    "With You Every Smile Becomes A Memory 🌹",
+
+"2027-07-17":
+    "With You My Heart Finds Peace ❤️",
+
+"2027-07-18":
+    "With You Life Feels A Little Kinder 💗",
+
+"2027-07-19":
+    "With You Love Feels Like Home 💕",
+
+"2027-07-20":
+    "With You I Would Stay Forever ❤️",
+
+"2027-07-21":
+    "My Favourite Smile 😊❤️",
+
+"2027-07-22":
+    "My Favourite Person 💕",
+
+"2027-07-23":
+    "My Favourite Love Note 💗",
+
+"2027-07-24":
+    "My Favourite Little Thought Of You 💖",
+
+"2027-07-25":
+    "My Favourite Part Of Every Day 🌹",
+
+"2027-07-26":
+    "My Favourite Reason To Smile 😊",
+
+"2027-07-27":
+    "My Favourite Memory Of Us ❤️",
+
+"2027-07-28":
+    "My Favourite Dream About Us 💕",
+
+"2027-07-29":
+    "My Favourite Chapter Of Our Story 📖",
+
+"2027-07-30":
+    "My Favourite Hello From The Heart 💗",
+
+"2027-07-31":
+    "My Favourite Beautiful Feeling 💖",
+
+"2027-08-01":
+    "My Favourite Moment With You 🌹",
+
+"2027-08-02":
+    "My Favourite Kind Of Magic ✨",
+
+"2027-08-03":
+    "My Favourite Way To Say I Care ❤️",
+
+"2027-08-04":
+    "My Favourite Thought Before Sleep 🌙💕",
+
+"2027-08-05":
+    "My Favourite Morning Thought ☀️💗",
+
+"2027-08-06":
+    "My Favourite Little Love Story 💖",
+
+"2027-08-07":
+    "My Favourite Thing About You 🌹",
+
+"2027-08-08":
+    "My Favourite Feeling With You ❤️",
+
+"2027-08-09":
+    "My Favourite Reason To Believe In Love 💕",
+
+"2027-08-10":
+    "A Little Romance For Today 💕",
+
+"2027-08-11":
+    "A Little Smile For Your Heart 😊❤️",
+
+"2027-08-12":
+    "A Little Magic For Our Story ✨",
+
+"2027-08-13":
+    "A Little Dream For Tomorrow 💖",
+
+"2027-08-14":
+    "A Little Hug From My Heart 🤗",
+
+"2027-08-15":
+    "A Little Wish For Your Happiness 🌹",
+
+"2027-08-16":
+    "A Little Kiss For Your Smile 💋",
+
+"2027-08-17":
+    "A Little Love For This Moment 💗",
+
+"2027-08-18":
+    "A Little Thought Before Bed 🌙",
+
+"2027-08-19":
+    "A Little Sunshine For Your Day ☀️",
+
+"2027-08-20":
+    "A Little Reminder That You Matter ❤️",
+
+"2027-08-21":
+    "A Little Note To Make You Smile 😊",
+
+"2027-08-22":
+    "A Little Piece Of My Heart 💕",
+
+"2027-08-23":
+    "A Little Dream Filled With You 💖",
+
+"2027-08-24":
+    "A Little Moment Just For Us 🌹",
+
+"2027-08-25":
+    "A Little Love To Carry Today 💗",
+
+"2027-08-26":
+    "A Little Secret Smile For You ❤️",
+
+"2027-08-27":
+    "A Little Reason To Think Of Us 💕",
+
+"2027-08-28":
+    "A Little Bit Of Forever 💖",
+
+"2027-08-29":
+    "A Little Warm Feeling For You 🌹"
+
+    
+};
+
+
+/* ---------- Get Today's Date ---------- */
+
+function getTodayKey() {
+
+    const today = new Date();
+
+    const year = today.getFullYear();
+
+    const month = String(
+        today.getMonth() + 1
+    ).padStart(2, "0");
+
+    const day = String(
+        today.getDate()
+    ).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+}
+
+
+/* ---------- Format Date ---------- */
+
+function getPrettyDate() {
+
+    const today = new Date();
+
+    return today.toLocaleDateString(
+        "en-IN",
+        {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }
+    );
+}
+
+
+/* ---------- Display Today's Note ---------- */
+
+function showDailyNote() {
+
+    const noteElement =
+        document.getElementById("dailyNoteText");
+
+    const dateElement =
+        document.getElementById("noteDate");
+
+    if (!noteElement || !dateElement) {
+        return;
+    }
+
+    const todayKey = getTodayKey();
+
+    const note =
+        dailyNotes[todayKey];
+
+    const gifElement =
+        document.getElementById("dailyNoteGif");
+
+    const gifUrl =
+        dailyGifs[todayKey];
+
+    dateElement.textContent =
+        getPrettyDate();
+
+    if (gifElement) {
+        if (gifUrl) {
+            gifElement.src = gifUrl;
+            gifElement.style.display = "block";
+        } else {
+            gifElement.removeAttribute("src");
+            gifElement.style.display = "none";
+        }
+    }
+
+
+    if (note) {
+
+        noteElement.style.opacity = "0";
+        noteElement.style.transform =
+            "translateY(10px)";
+
+        setTimeout(() => {
+
+            noteElement.textContent = note;
+
+            noteElement.style.opacity = "1";
+            noteElement.style.transform =
+                "translateY(0)";
+
+        }, 300);
+
+    } else {
+
+        noteElement.textContent =
+            "A beautiful little message is waiting for you... ❤️";
+
+    }
+}
+
+
+/* ---------- Start ---------- */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    showDailyNote
+);
+
+</script>
+<body class="countdown-page">
+
+    <!-- Loader -->
+    <div id="loader">
+        <h1>✨ Preparing a Surprise... ✨</h1>
+    </div>
+
+    <!-- Background -->
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+
+    <div class="moon"></div>
+
+    <!-- Floating hearts -->
+    <div id="hearts"></div>
+
+    <!-- Countdown -->
+    <main>
+
+        <section id="countdown-section">
+
+            <h2>Countdown to Rojina's Birthday 🎂</h2>
+
+            <div class="countdown">
+
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <p>Days</p>
+                </div>
+
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <p>Hours</p>
+                </div>
+
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <p>Minutes</p>
+                </div>
+
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <p>Seconds</p>
+                </div>
+
+            </div>
+
+        </section>
+<!-- ================= DAILY NOTE SECTION ================= -->
+<section class="daily-note-section" id="daily-note">
+
+    <div class="note-heading">
+        <span class="note-small-title">A little message for you</span>
+        <h2>💌 Today's Note</h2>
+        <p>Because every day deserves a special message.</p>
+    </div>
+
+    <div class="daily-note-card">
+
+        <div class="note-decoration note-heart-1">♥</div>
+        <div class="note-decoration note-heart-2">♥</div>
+
+        <div class="note-top">
+            <span class="note-icon">💖</span>
+            <span id="noteDate">Today</span>
+        </div>
+
+        <!-- Daily GIF: changes together with today's note -->
+        <div class="daily-gif-wrap">
+            <img
+                id="dailyNoteGif"
+                class="daily-note-gif"
+                src=""
+                alt="Today's love GIF"
+                loading="eager"
+            >
+        </div>
+
+        <div class="note-content">
+            <p id="dailyNoteText">
+                Loading your special note...
+            </p>
+        </div>
+
+        <div class="note-bottom">
+            <span> Samir </span>
+            <span>♥</span>
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= END DAILY NOTE SECTION ================= -->
+
+        <!-- Hero -->
+        <section class="hero">
+
+            <h1 class="title">
+                Happy 23nd Birthday
+            </h1>
+
+            <h2 class="name">
+                Rojina 💖
+            </h2>
+
+            <p class="subtitle">
+                29 August 2027
+            </p>
+
+            <button
+                id="openGift"
+                type="button"
+                disabled
+            >
+                🎁 Surprise Unlocks on 29/08/2027
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        Made with ❤️ for Rojina
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
